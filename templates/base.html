@@ -1,0 +1,57 @@
+{% load static %}
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static '/css/layoutBase.css' %}">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    {% block 'head' %}
+    {% endblock %}
+
+    <title>{% block 'title' %}{% endblock %}</title>
+
+  </head>
+  <body>   
+    <!-- Agrupa os elementos que compõe o cabeçalho. -->
+    <header>      
+      <a href="{% url 'home' %}" id="logo"><img style="width:284px;height:234px" src="{% static '/img/LogoTupiPlayVerde_Looka.png' %}" alt="Tupi Play" title="Logo Tupi Play"></a>
+      <a href="{% url 'identifica_jogador' %}"><div class="botao" style="position: absolute;z-index: 2;top: 199px; right: 144px;">Entrar</div> </a>
+      <a href="{% url 'inclui_jogador' %}"><div class="botao" style="position: absolute;z-index: 2;top: 199px; right: 42px;">Cadastrar</div></a>
+      <div style="width:100%;height:100%;opacity:0.5;background-size:cover;background-image: url('{% static '/img/Fundo_3.png' %}');justify-content: center;align-items: bottom;">
+          Bem vindo(a), {{ nm_avatar }}!
+      </div>
+    </header>    
+    
+    <section class="home-section">
+      {% block 'dashboard'%}
+      {% endblock %}
+    </section>
+    
+    <main>{% block 'body' %}{% endblock %}</main>
+
+
+    <!--<aside>Aside</aside>-->
+
+	  <!-- Agrupa informações de autoria, direitos autorais, contato, 
+		   mapa do site, links e documento relacionados. -->
+    <footer>
+      <div class="container">
+        <div class="row" >
+          <div class="col" style="color: #15EDA3;align-items: center;">
+            <div class="row" >Todos os direitos reservados ao GRUPO DEZ+OITO LTDA. 2024.</div>
+            <div class="row" >Av. Condessa Elizabeth de Robiano, 5280 - CEU Tiquatira, São Paulo - SP, 03074-000</div>
+          </div> 
+          <div class="" style="color: #1CD6FF;display:flex;flex-direction:row;align-items: center;">
+            <div class="" style="margin-left:10px">Sobre Nós</div>
+            <div class="" style="margin-left:30px">Fale conosco</div>
+          </div> 
+        </div>
+      </div>
+    </footer>
+    <script src="{% static '/js/scriptBase.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

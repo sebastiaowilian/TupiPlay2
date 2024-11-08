@@ -1,0 +1,44 @@
+{% extends "base.html" %}   
+
+{% block 'head'%}
+  <style type="text/css">  
+    .divTemplateTitulo{
+      flex: 1; 
+      background-color: #1D7D86;
+      border: 1px solid #ccc;
+      font-size:20px;
+      color: #15EDA3;
+      font-weight:bold;
+      border-bottom-left-radius: 13px;
+      border-bottom-right-radius: 13px;
+      border: 1px solid #ccc;
+      padding: 12px;            
+      margin: 0px;
+    }   
+    .divTemplateConteudo{
+      border-left: 1px solid #ccc;
+      border-right: 1px solid #ccc;
+      padding:16px;
+      margin: 0px;
+      height:100tw;
+      overflow:auto;            
+    }  
+  </style>
+{% endblock %}
+
+{% block 'title' %}Cadastro de Jogador(a){% endblock %}
+
+{% block 'dashboard' %}{% endblock %}
+
+{% block 'body' %}
+  <div class="container" >
+    <div class="divTemplateTitulo">Cadastro para Jogador(a)</div>
+    <div class="divTemplateConteudo">
+      <form action = "{% url 'inclui_jogador' %}" method='POST'>
+        {% csrf_token %}    
+        {{ form.as_p }}
+        <input type="submit" class='btn btn-success' value="Cadastrar">
+      </form>    
+    </div>
+  </div>
+{% endblock %}

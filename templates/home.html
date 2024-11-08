@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block 'head' %}
+    <!--<link rel="stylesheet" href="{% static 'clientes/css/clientes.css' %}">-->    
+    <style type="text/css">  
+          .divTemplateTitulo{
+            flex: 1; 
+            background-color: #1D7D86;
+            border: 1px solid #ccc;
+            font-size:20px;
+            color: #15EDA3;
+            font-weight:bold;
+            border-bottom-left-radius: 13px;
+            border-bottom-right-radius: 13px;
+            border: 1px solid #ccc;
+            padding: 10px;            
+            margin: 0px;
+          }   
+          .divTemplateConteudo{
+            border-left: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+            padding:16px;
+            margin: 0px;
+            height:100tw;
+            overflow:auto;            
+          }  
+    </style>
+{% endblock %}
+
+{% block 'title' %}Tupi Play - Jogar para revitalizar{% endblock %}
+
+{% block 'dashboard' %}
+    <!--<script src="{% static 'clientes/js/clientes.js' %}"></script>-->
+{% endblock%}
+
+{% block 'body' %}
+
+
+<div class="container" >
+    <div class="divTemplateTitulo">... Para Aprender</div>
+    <div class="divTemplateConteudo">
+        Univesp<br>Univesp<br>Univesp<br>Univesp<br>Univesp<br>Univesp<br>Univesp<tr>
+    </div>
+
+    <a href="{% url 'jogo_quiz' %}"><div class="divTemplateTitulo" style="margin-top:20px">... Para Treinar o idioma</div></a>
+    <div class="divTemplateConteudo">
+        Univesp<br>Univesp<br>Univesp<br>Univesp<br>Univesp<br>Univesp<br>Univesp<tr>
+    </div>
+
+    <div class="divTemplateTitulo" style="margin-top:20px">... Para  Comentar</div>
+    <div class="divTemplateConteudo">
+        Univesp<br>Univesp<br>Univesp<br>Univesp<br>Univesp<br>Univesp<br>Univesp<tr>
+    </div>
+</div>
+{% endblock%}
+
