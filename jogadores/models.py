@@ -9,7 +9,7 @@ class Idioma(models.Model):
     id_idioma = models.AutoField(primary_key=True, default=0, verbose_name='ID idioma')
     nm_idioma = models.CharField(max_length=30,unique=True, verbose_name='Nome idioma')
     ds_idioma = models.CharField(max_length=150, null=True, verbose_name='Descrição idioma')
-    nm_arquivo_imagem = models.CharField(max_length=50, null=True, verbose_name='Nome arquivo imagem')
+    nm_arquivo_imagem = models.CharField(max_length=50, null=True, verbose_name='Arquivo com imagem para Avatar')
     nm_arquivo_estilo_css = models.CharField(max_length=50, null=True, verbose_name='Nome arquivo estilo CSS')
     dt_inclusao = models.DateTimeField(auto_now_add=True, verbose_name='Data inlusão')
     id_usuario_inclusao = models.IntegerField(default=0, verbose_name='Usuário inclusao')

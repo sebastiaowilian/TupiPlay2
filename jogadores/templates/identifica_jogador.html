@@ -1,38 +1,14 @@
-{% extends "base.html" %}   
+{% extends "base.html" %}
+{% load static %}
 
-{% block 'head'%}
-<style type="text/css">  
-  .divTemplateTitulo{
-    flex: 1; 
-    background-color: #1D7D86;
-    border: 1px solid #ccc;
-    font-size:20px;
-    color: #15EDA3;
-    font-weight:bold;
-    border-bottom-left-radius: 13px;
-    border-bottom-right-radius: 13px;
-    border: 1px solid #ccc;
-    padding: 12px;            
-    margin: 0px;
-  }   
-  .divTemplateConteudo{
-    border-left: 1px solid #ccc;
-    border-right: 1px solid #ccc;
-    padding:16px;
-    margin: 0px;
-    height:100tw;
-    overflow:auto;            
-  }  
-</style>
+{% block 'head' %}
+
 {% endblock %}
 
-{% block 'title' %}Identifique-se{% endblock %}
-
-{% block 'dashboard' %}{% endblock %}
+{% block 'title' %}LOGIN: Identifique-se{% endblock %}
 
 {% block 'body' %}
-  <div class="container">
-    <div class="divTemplateTitulo">Identifique-se</div>
+    <div class="divTemplateTitulo" role="title" tabindex="0" aria-label="Tela para Login"><h1 tabindex="-1" ><i class="fa fa-user"></i> LOGIN: Identifique-se</h1></div>
     <div class="divTemplateConteudo">
       <form action = "{% url 'identifica_jogador' %}" method='POST'>
         {% csrf_token %}
@@ -40,5 +16,5 @@
         <input type="submit" class='btn btn-success' value="Entrar">
       </form>    
     </div>    
-  </div>    
+  
 {% endblock %}

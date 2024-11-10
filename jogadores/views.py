@@ -27,14 +27,31 @@ def home(request):
     avatar = request.session.get('nm_avatar','None')
     nome = request.session.get('nm_jogador', 'None')
     genero = request.session.get('tp_genero', 'N')
+    ds_saudacao_site = request.session.get('ds_saudacao_site','')
+    #print('From Jogadores' + context.get('nm_avatar','None'))
+
+    #print('CONTEXT: ID = ' + str(context.get('id_jogador')) + ', Nome = ' + context.get('nm_jogador'))
+    #print('CONTEXT: ID = ' + str(context['id_jogador']) + ', Nome = ' + context['nm_jogador'] + ', Avatar = ' + context['nm_avatar'] + ', Gênero = ' + context['tp_genero'])
+    # Passa os valores para o contexto
+    context = {'id_jogador': id, 'nm_avatar': avatar, 'nm_jogador': nome, 'tp_genero' : genero, 'ds_saudacao_site' : ds_saudacao_site}
+    return render(request, 'home.html', context)
+
+def sobrenos(request):
+    # Acessa informações da sessão
+    id = request.session.get('id_jogador', 'None') #'1' #request.session['id_jogador']
+    avatar = request.session.get('nm_avatar','None')
+    nome = request.session.get('nm_jogador', 'None')
+    genero = request.session.get('tp_genero', 'N')
+    ds_saudacao_site = request.session.get('ds_saudacao_site','')
     #print('From Jogadores' + context.get('nm_avatar','None'))
 
     #print('CONTEXT: ID = ' + str(context.get('id_jogador')) + ', Nome = ' + context.get('nm_jogador'))
     #print('CONTEXT: ID = ' + str(context['id_jogador']) + ', Nome = ' + context['nm_jogador'] + ', Avatar = ' + context['nm_avatar'] + ', Gênero = ' + context['tp_genero'])
 
     # Passa os valores para o contexto
-    context = {'id_jogador': id, 'nm_avatar': avatar, 'nm_jogador': nome, 'tp_genero' : genero}
-    return render(request, 'home.html', context)
+    context = {'id_jogador': id, 'nm_avatar': avatar, 'nm_jogador': nome, 'tp_genero' : genero, 'ds_saudacao_site' : ds_saudacao_site}
+    #return render(request, 'SobreNos.html', context)
+    return render(request, 'SobreNos.html', context)
 
 def identifica_jogador(request):
     if request.method == "GET":
@@ -46,13 +63,16 @@ def identifica_jogador(request):
             email = form.cleaned_data['nm_email']
             senha = form.cleaned_data['_nm_senha']    
             jogador = Jogador.objects.filter(nm_email=email,_nm_senha=senha).first()
+            ds_saudacao_site = request.session.get('ds_saudacao_site','')
             request.session.clear()
             if jogador:                
                 request.session['id_jogador'] = jogador.id_jogador
                 request.session['nm_avatar'] = jogador.nm_avatar
                 request.session['nm_jogador'] = jogador.nm_jogador
+                request.session['ds_saudacao_site'] = 'Bem vindo(a), ' + jogador.nm_jogador + '!'
                 request.session['tp_genero'] = jogador.tp_genero
-                context = {'id_jogador': str(jogador.id_jogador), 'nm_avatar': jogador.nm_avatar, 'nm_jogador': jogador.nm_jogador, 'tp_genero': jogador.tp_genero}
+                context = {'id_jogador': str(jogador.id_jogador), 'nm_avatar': jogador.nm_avatar, 'nm_jogador': jogador.nm_jogador, 'tp_genero': jogador.tp_genero, 'ds_saudacao_site':request.session.get('ds_saudacao_site')}
+                
                 return redirect(reverse('home'), context)
             else:
                 form.add_error(None, 'Email ou senha inválidos')

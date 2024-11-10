@@ -7,6 +7,7 @@ from jogos import views as j
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name="home"),
+    path('sobrenos', views.sobrenos, name="sobrenos"),
     path('jogadores/identifica_jogador', views.identifica_jogador, name="identifica_jogador"),
     path('jogadores/inclui_jogador', views.inclui_jogador, name="inclui_jogador"),
     path('jogos/quiz', j.jogo_quiz, name="jogo_quiz"),

@@ -1,57 +1,69 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block 'head' %}
-    <!--<link rel="stylesheet" href="{% static 'clientes/css/clientes.css' %}">-->    
-    <style type="text/css">  
-          .divTemplateTitulo{
-            flex: 1; 
-            background-color: #1D7D86;
-            border: 1px solid #ccc;
-            font-size:20px;
-            color: #15EDA3;
-            font-weight:bold;
-            border-bottom-left-radius: 13px;
-            border-bottom-right-radius: 13px;
-            border: 1px solid #ccc;
-            padding: 10px;            
-            margin: 0px;
-          }   
-          .divTemplateConteudo{
-            border-left: 1px solid #ccc;
-            border-right: 1px solid #ccc;
-            padding:16px;
-            margin: 0px;
-            height:100tw;
-            overflow:auto;            
-          }  
-    </style>
-{% endblock %}
+{% block 'head' %}{% endblock %}
 
-{% block 'title' %}Tupi Play - Jogar para revitalizar{% endblock %}
-
-{% block 'dashboard' %}
-    <!--<script src="{% static 'clientes/js/clientes.js' %}"></script>-->
-{% endblock%}
+{% block 'title' %}Tupi Play 2 - Jogar para revitalizar{% endblock %}
 
 {% block 'body' %}
+    <section> 
+        <div class="divTemplateTitulo" tabindex="0" aria-label="Sessão Para Aprender">
+            <h1 tabindex="-1" id="SessaoParaAprender" ><i class="fa fa-book"></i> Para aprender</h1>
+        </div>
+        <div class="divTemplateConteudo">
+            <a href="#" tabindex="0" role="link" aria-label="Em breve: Dicionário Tupi Antigo.">
+                <div tabindex="-1" class="divTemplateConteudoItem">
+                    <img src="{% static '\img\imgDicionario.jpg' %}" alt="Dicionário Tupi Antigo" aria-hidden="true">
+                    <span tabindex="-1"><i class="fa fa-book"></i><span aria-hidden="true"><b>Em Breve:</b> Dicionário Tupi</span></span>
+                </div>
+            </a>
+            <a href="#" tabindex="0" role="link" aria-label="Em breve: Material sobre Cultura Indígena.">
+                <div tabindex="-1" class="divTemplateConteudoItem" >
+                    <img src="{% static '\img\imgCulturaIndigena.jpg' %}" alt="Cultura Indígena" aria-hidden="true">
+                    <span tabindex="-1"><i class="fa fa-book"></i><span aria-hidden="true"><b>Em Breve:</b> Cultura Indígena</span></span>
+                </div>
+            </a>
+            <a href="#" tabindex="0" role="link" aria-label="Em breve: Notícias do Jornal: Indios do Brasil.">
+                <div tabindex="-1" class="divTemplateConteudoItem" >
+                    <img src="{% static '\img\imgJornal.jpg' %}" alt="Notícias Jornal Indios do Brasil" aria-hidden="true">
+                    <span tabindex="-1"><i class="fa fa-book"></i><span aria-hidden="true"><b>Em Breve:</b> Notícias</span></span>
+                </div>
+            </a>
+        </div>
+    </section>
 
+    <section >        
+        <div class="divTemplateTitulo" tabindex="0" aria-label="Sessão Para Treinar o Idioma"><h1 tabindex="-1" id="SessaoParaTreinarOIdioma"><i class="fa fa-gamepad"></i> Para treinar o idioma</h1></div>
+        <div class="divTemplateConteudo">
+            <a href="{% url 'jogo_quiz' %}" tabindex="0" role="link" aria-label="Kuis. Responda Agora Mesmo!">
+                <div tabindex="-1" class="divTemplateConteudoItem">
+                    <img src="{% static '\img\imgQuiz.jpg' %}" alt="Jogo Quiz" title="Imagem Jogar Quiz" aria-hidden="true">
+                    <span tabindex="-1"><i class="fa fa-gamepad"></i><span aria-hidden="true"><b>Jogue Nosso Quiz</b></span></span>
+                </div>
+            </a>
+            
+            <a href="#" tabindex="0" role="link" aria-label="Em breve: Jogo da memória.">
+                <div tabindex="-1" class="divTemplateConteudoItem">
+                    <img src="{% static '\img\imgJogoDaMemoria.png' %}" alt="Jogo da memória" title="Imagem Jogo da Memória" aria-hidden="true">
+                    <span tabindex="-1"><i class="fa fa-gamepad"></i><span aria-hidden="true"><b>Em Breve:</b> Jogo da Memória</span></span>
+                </div>
+            </a>
+            
+            <a href="#" tabindex="0" role="link" aria-label="Em breve: Palavras cruzadas.">
+                <div tabindex="0" class="divTemplateConteudoItem">
+                    <img src="{% static '\img\imgPalavrasCruzadas.jpg' %}" alt="Palavras cruzadas" title="Imagem Palavras Cruzadas" aria-hidden="true">
+                    <span tabindex="-1"><i class="fa fa-gamepad"></i><span aria-hidden="true"><b>Em Breve:</b> Palavras Cruzadas</span></span>
+                </div>
+            </a>
+        </div>
+    </section>
 
-<div class="container" >
-    <div class="divTemplateTitulo">... Para Aprender</div>
-    <div class="divTemplateConteudo">
-        Univesp<br>Univesp<br>Univesp<br>Univesp<br>Univesp<br>Univesp<br>Univesp<tr>
-    </div>
-
-    <a href="{% url 'jogo_quiz' %}"><div class="divTemplateTitulo" style="margin-top:20px">... Para Treinar o idioma</div></a>
-    <div class="divTemplateConteudo">
-        Univesp<br>Univesp<br>Univesp<br>Univesp<br>Univesp<br>Univesp<br>Univesp<tr>
-    </div>
-
-    <div class="divTemplateTitulo" style="margin-top:20px">... Para  Comentar</div>
-    <div class="divTemplateConteudo">
-        Univesp<br>Univesp<br>Univesp<br>Univesp<br>Univesp<br>Univesp<br>Univesp<tr>
-    </div>
-</div>
+    <section >        
+        <div class="divTemplateTitulo" tabindex="0" aria-label="Sessão Para Comentar"><h1 tabindex="-1" id="SessaoParaComentar"><i class="fa fa-comments"></i> Para comentar</h1></div>
+        <div class="divTemplateConteudo">
+            <div tabindex="-1" class="divTemplateConteudoItemBorderLess"><img src="{% static '\img\imgComentario1.jpg' %}" tabindex="0" alt="Comentário 1" aria-label="Gustavo Lima comentou: 'Fantástico! Estou aprendendo e me divertindo muito.'"></div>
+            <div tabindex="-1" class="divTemplateConteudoItemBorderLess"><img src="{% static '\img\imgComentario2.jpg' %}" tabindex="0" alt="Comentário 2" aria-label="Carla da Silva comentou: 'Não vejo ahoradeincluírem novos jogos.'"></div>
+        </div>
+    </section>
 {% endblock%}
 
