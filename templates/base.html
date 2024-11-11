@@ -10,7 +10,7 @@
     <!-- ITENS PARA MENU RESPONSIVO-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://use.fontawesome.com/67101e46d6.js"></script> <!-- Logos do  Menu-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/svg-with-js.min.css"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/svg-with-js.min.css"></script>-->
     <link rel="stylesheet" type="text/css" media="screen" href="{% static '/css/style.css' %}">
     <script src="{% static '/js/script.js' %}"></script>
     
@@ -49,8 +49,7 @@
               <div aria-expanded="false" role="menu" class="collapse navbar-collapse" aria-label="Menu expandido" id="toggleMobileMenu">
                   <ul class="navbar-nav ms-auto text-center" >
                       <li><a href="{% url 'home' %}#SessaoParaAprender"       class="nav-item nav-links"      tabindex="0"><span tabindex="-1" aria-label="Encaminha à sessão Para Aprender"           ><i class="fa fa-book"          ></i> <span aria-hidden="true">Para aprender</span></span></a></li>
-                      <li><a href="{% url 'home' %}#SessaoParaTreinarOIdioma" class="nav-item nav-links"      tabindex="0"><span tabindex="-1" aria-label="Encaminha à sessão Para Treinar o idioma"   ><i class="fa fa-gamepad"       ></i> <span aria-hidden="true">Para treinar o idioma</span></span></a></li>
-                                                    
+                      <li><a href="{% url 'home' %}#SessaoParaTreinarOIdioma" class="nav-item nav-links"      tabindex="0"><span tabindex="-1" aria-label="Encaminha à sessão Para Treinar o idioma"   ><i class="fa fa-gamepad"       ></i> <span aria-hidden="true">Para treinar o idioma</span></span></a></li>                                                    
                       <li><a href="{% url 'home' %}#SessaoParaComentar" class="nav-item nav-links"            tabindex="0"><span tabindex="-1" aria-label="Encaminha à sessão Para Comentar"           ><i class="fa fa-comments"      ></i> <span aria-hidden="true">Para comentar</span></span></a></li>
                       <li><a href="{% url 'sobrenos' %}"                class="nav-item nav-links"            tabindex="0"><span tabindex="-1" aria-label="Encaminha à página Sôbre Nós"               ><i class="fa fa-graduation-cap"></i> <span aria-hidden="true">Sobre nós</span></span></a></li>
                       <li><a href="#"                                   class="n v-item nav-links"            tabindex="0"><span tabindex="-1" aria-label="Encaminha à página Fale Conosco"            ><i class="fa fa-paper-plane"   ></i> <span aria-hidden="true">Fale conosco</span></span></a></li>

@@ -75,17 +75,7 @@ def pega_dados_partida_quiz():
             lstrespostas_full.append(frase)
             qtRespostas += 1
         
-    '''
-    print('Total em lstfrases_pergunta: ' + str(len(lstfrases_pergunta)))
-    print('Total em lstfrases_resposta: ' + str(len(lstfrases_resposta)))
-    print('Total em lstrespostas_full: ' + str(len(lstrespostas_full)))
-    
-    counter = 0
-    for frase in lstrespostas_full:
-        print('Posição ' + str(counter) + ' : ')
-        print(frase)
-        counter = counter + 1'''
-        
+      
     # Combino perguntas e respostas em uma coleção 
     lstPerguntasRespostas = [(lstfrases_pergunta, lstrespostas_full[i:i+5]) for i, lstfrases_pergunta in enumerate(lstfrases_pergunta)]
     return(lstPerguntasRespostas)
@@ -96,10 +86,27 @@ def jogo_quiz(request):
     avatar =  request.session.get('nm_avatar','Anônimo')
     nome =  request.session.get('nm_jogador', 'Anônimo')
     genero = request.session.get('tp_genero', 'N')
+
+    #Escolho frases Motivacionais para Acertos e Erros
+    frasesAcerto = [
+        "Muito Bem!",
+        "Continue Praticando!",
+        "Arrasou!"
+    ]
+    frasesErro = [
+        "Que Pena, passou perto!",
+        "Quase acertou! Na próxima você consegue!",
+        "Calma, também aprendemos com os erros!"
+    ]
+    indice_aleatorio = random.randint(0, len(frasesAcerto) - 1)
+    frase_Acerto = frasesAcerto[indice_aleatorio]
+    frase_Erro = frasesErro[indice_aleatorio]  
+
     if request.method == "GET":
 
         lstPerguntasRespostas = pega_dados_partida_quiz()
 
+        
         # Iterando sobre frases_combinadas para obter os id_frase das perguntas
         id_frases_aleatorias_5 = []
         for item_aleatorio_5, _ in lstPerguntasRespostas:
@@ -168,7 +175,7 @@ def jogo_quiz(request):
 
         #Monto Context
         #context = {'id_jogador': id, 'nm_avatar': avatar, 'nm_jogador': nome, 'genero': genero, 'frases': frases_full}
-        context = {'id_jogador': id, 'nm_avatar': avatar, 'nm_jogador': nome, 'tp_genero': genero, 'id_qt_partida':1, 'id_num_questao':id_num_questao, 'id_qt_pontos':id_qt_pontos, 'id_qt_tempo':"00:00:00", 'id_qt_acerto':id_qt_acerto, 'id_qt_erro':id_qt_erro, 'qtReplays':0, 'lstPerguntasRespostas':lstPerguntasRespostas,'Pergunta':Pergunta,'Respostas':Respostas}
+        context = {'id_jogador': id, 'nm_avatar': avatar, 'nm_jogador': nome, 'tp_genero': genero, 'id_qt_partida':1, 'id_num_questao':id_num_questao, 'id_qt_pontos':id_qt_pontos, 'id_qt_tempo':"00:00:00", 'id_qt_acerto':id_qt_acerto, 'id_qt_erro':id_qt_erro, 'qtReplays':0, 'lstPerguntasRespostas':lstPerguntasRespostas,'Pergunta':Pergunta,'Respostas':Respostas,'frase_Acerto':frase_Acerto, 'frase_Erro':frase_Erro}
     
    
         return render(request, 'jogo_quiz.html', context = context)
