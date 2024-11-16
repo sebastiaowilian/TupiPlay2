@@ -213,7 +213,7 @@
              <!-- Modal com acessibilidade -->
               <div id="modalAcerto" class="modal" role="dialog" aria-labelledby="modal-text" aria-modal="true">
                 <div class="modal-content">
-                  <img aria-hidden="true" src="{% static '/img/indioSorrindo.jpeg' %}" style="heigh:100px; width:200px" alt="Acertou">
+                  <img aria-hidden="true" src="{% static '/img/indioSorrindo.jpeg' %}" style="heigh:100px; width:200px" alt="Indicando reposta correta">
                   <p id="modal-text" aria-live="assertive"><b>Você acertou. {{ frase_Acerto }}</b> </p>
                   <p> A resposta correta foi: <span style="color:blue"> {{ Pergunta.ds_frase_idioma_2 }}</span></p>
                   <button id="close-btnA" class="close-btn">Fechar</button>
@@ -222,7 +222,7 @@
 
               <div id="modalErro" class="modal" role="dialog" aria-labelledby="modal-text" aria-modal="true">
                 <div class="modal-content">
-                  <img aria-hidden="true" src="{% static '/img/indiaChorando.jpeg' %}" style="heigh:100px; width:200px; margin-bottom:3px;" alt="Acertou">
+                  <img aria-hidden="true" src="{% static '/img/indiaChorando.jpeg' %}" style="heigh:100px; width:200px; margin-bottom:3px;" alt="Indicando resposta errada">
                   <p id="modal-text" aria-live="assertive"><b>{{frase_Erro}}</b> </p>
                   <p> A resposta correta seria: <span style="color:blue"> {{ Pergunta.ds_frase_idioma_2 }}</span></p>
                   <button id="close-btnE" class="close-btn">Fechar</button>
@@ -238,13 +238,10 @@
                 <li role="radio" aria-checked="false" tabindex="0"style="font-size:18px;color:black;">
                   <label for="opcao{{ forloop.counter }}">
                   <input type="radio" id="opcao{{ forloop.counter }}" name="opcoes" value="{{ item.id_frase }} " tabindex="0"> <span > {{ item.ds_frase_idioma_2 }}</span>
-                  </label>         
-                  
-               
+                  </label> 
                 </li>
               {% endfor%}
-              </ul>
-              
+              </ul>        
 
             <div class="divTemplateConteudoBotao">                 
               <input type="submit" class='btn btn-success' style="margin-right:20px" value="Responder" onclick="validarformQuiz(event);"><input type="submit" class='btn btn-primary' style="margin-right:20px" value="Pular"><button onclick="window.location.href='{% url 'home' %}'" class='btn btn-danger' style="margin-right:20px">Encerrar</button>
