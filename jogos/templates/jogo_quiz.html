@@ -17,37 +17,19 @@
 
     // Função para abrir o modal e exibir a opção selecionada
     function openModalAcerto() {
-      //const selectedOption = select.options[select.selectedIndex].text;
-      //if (select.value) { // Verifica se uma opção foi selecionada
-        //modalText.textContent = 'Você escolheu:';//`Você escolheu: ${selectedOption}`;
-       // modal.style.display = 'flex'; // Exibe o modal
         document.getElementById('modalAcerto').style.display = 'flex';
-        //closeButton.focus(); // Define o foco no botão "Fechar"
         document.getElementById('close-btnA').focus(); // Define o foco no botão "Fechar"
-     // } else {
-     //   alert("Por favor, selecione uma opção antes de confirmar."); // Alerta caso nenhuma opção tenha sido selecionada
-     // }
     }
 
     function openModalErro() {
-      //const selectedOption = select.options[select.selectedIndex].text;
-      //if (select.value) { // Verifica se uma opção foi selecionada
-        //modalText.textContent = 'Você escolheu:';//`Você escolheu: ${selectedOption}`;
-       // modal.style.display = 'flex'; // Exibe o modal
-        document.getElementById('modalErro').style.display = 'flex';
-        //closeButton.focus(); // Define o foco no botão "Fechar"
+        document.getElementById('modalErro').style.display = 'flex';        
         document.getElementById('close-btnE').focus(); // Define o foco no botão "Fechar"
-     // } else {
-     //   alert("Por favor, selecione uma opção antes de confirmar."); // Alerta caso nenhuma opção tenha sido selecionada
-     // }
     }
 
     // Função para fechar o modal
     function closeModal() {
       document.getElementById('modalAcerto').style.display = 'none';
       document.getElementById('modalErro').style.display = 'none';
-      //modal.style.display = 'none';
-      //confirmButton.focus(); // Retorna o foco para o botão de confirmação após fechar o modal
     }
 
     // Evitar que o foco saia do modal enquanto estiver aberto
@@ -247,7 +229,6 @@
               <input type="submit" class='btn btn-success' style="margin-right:20px" value="Responder" onclick="validarformQuiz(event);"><input type="submit" class='btn btn-primary' style="margin-right:20px" value="Pular"><button onclick="window.location.href='{% url 'home' %}'" class='btn btn-danger' style="margin-right:20px">Encerrar</button>
             </div>
         </div>
-        </form>
-        
+        </form>        
   
 {% endblock %}
